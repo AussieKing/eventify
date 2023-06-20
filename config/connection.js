@@ -1,0 +1,1 @@
+// Contains the configuration for connecting to your MySQL database using Sequelize.
