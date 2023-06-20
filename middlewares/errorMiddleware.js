@@ -1,0 +1,1 @@
+// Defines error handling middleware for handling and formatting errors in a consistent manner.

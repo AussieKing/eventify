@@ -1,0 +1,1 @@
+// Implements authentication middleware to protect certain routes from unauthorized access.

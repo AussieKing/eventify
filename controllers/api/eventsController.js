@@ -1,0 +1,1 @@
+// Handles API requests related to events, such as retrieving events, creating new events, updating events, etc.
