@@ -3,12 +3,29 @@ const User = require ('./User');
 const Event = require ('./Event');
 const Tag = require ('./Tag');
 
-// User belongsToMany Events (events_id)
+// User belongsToMany Events
+// One user can host one or more events
+User.hasMany(Event, {
+    foreignKey: 'host_id',
+});
 
-// User has many (belongsToMany) favourite Events
+// User can attend many (belongsToMany) Event
+User.belongsToMany(Event, {
+    foreignKey: 'event_id',
+});
 
-// Events have many Users
+// User can have many (belongsToMany) Event
+User.belongsToMany(Event, {
+    foreignKey: 'favourite_id',
+});
 
-// Event belongsToMany Tags
+// Tags belongsToMany (can be attributed to many) Events
+Tag.belongsToMany(Event, {
+    foreignKey: 'tag_id'
+});
 
-// Tags belongsToMany Events
+module.exports = {
+    User,
+    Event,
+    Tag,
+};
