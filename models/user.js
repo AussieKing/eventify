@@ -7,3 +7,42 @@ const sequelize = require('../config/connection');
 
 // Initialize User model (table) by extending off Sequelize's Model class
 class User extends Model {}
+
+User.init(
+    {
+        // define columns
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        favourite_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'event',
+                key: 'favourited_by'
+            }
+        },
+        event_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'event',
+                key: 'id'
+            }
+        }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
+    }
+);
+
+module.exports = User;
