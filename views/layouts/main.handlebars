@@ -1,19 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Eventify</title>
-    <link rel="stylesheet" type="text/css" href="your-css-file.css">
+<!doctype html>
+<html lang="en">
+    <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museum</title>
+  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body style="background-color: orange;">
-    <div class="top-bar">
-        <button class="btn">Log in</button>
-        <button class="btn">Sign Up</button>
+  <header>
+    <h1>Unleash your eventful side!</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+  <main>
+    <aside>
+      <h2>Enjoy the galleries!</h2>
+    </aside>
+    <div class="gallery">
+      {{{body}}}
     </div>
+  </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+{{!-- <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <title>Eventify!</title>
+</head>
+
+<body style="background-color: orange;">
+  <header>
+    <h1>Unleash your eventful side!</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav> --}}
+{{!-- <body style="background-color: orange;">
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" role="button" width: 20%;>Username<input type="Username"></a>
+                </li>
+                <li>
+                    <a href="#" role="button" width: 20%;>Password<input type="Password" width: 30%></a>
+                </li>
+                <li>
+                    <a href="#" role="button">Submit</a>
+                </li>
+            </ul>
+        </nav>   
+    </header> --}}
+
     <div class="logo">
         <img src="/assets/images/logo-color.png">
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search events by tags">
+        <input type="text" placeholder="Search events by tags" width: 30%;>
     </div>
     <div class="search-bar">
         <input type="text" placeholder="Search events by location">
@@ -43,3 +102,4 @@
     </div>
 </body>
 </html>
+
