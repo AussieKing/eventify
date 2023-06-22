@@ -5,19 +5,28 @@ const { Event } = require("../../models");
 
 //! router.get("/events") for all events that match that specific query (location &/or tags)
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const dbEventData = await event.findAll({
+      where: {
+        tag_name: "",
+      },
+
       include: [
         {
-          model: Painting,
-          attributes: ["event_name", "event_description"],
+          model: Event,
+          attributes: [
+            "event_name",
+            "event_description",
+            "event_location",
+            "host_name",
+          ],
         },
       ],
     });
 
     const event = dbEventData.map((event) => event.get({ plain: true }));
-    res.render("homepage", {
+    res.render("events", {
       event,
       loggedIn: req.session.loggedIn,
     });
