@@ -10,7 +10,7 @@ User.hasMany(Event, {
 });
 
 // many-to-one relation; one Event is hosted by (belongsTo) a User
-Event.belongsTo(User {
+Event.belongsTo(User, {
     foreignKey: 'host_id',
 });
 
@@ -21,6 +21,9 @@ User.hasMany(Event, {
 
 // An Event can have multiple (belongsToMany) Users (attendees)
 Event.belongsToMany(User, {
+    through: {
+        model: Event
+    },
     foreignKey: 'attending_event',
 })
 
@@ -36,6 +39,9 @@ Event.hasMany(Tag, {
 
 // Tags belongsToMany (can be attributed to many) Events
 Tag.belongsToMany(Event, {
+    through: {
+        model: Event
+    },
     foreignKey: 'tag_id'
 });
 
