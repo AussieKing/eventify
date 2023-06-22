@@ -8,7 +8,7 @@ const router = require("express").Router();
 
 router.post("/login", async (req, res) => {
   try {
-    const dbUserData = await User.findOne({
+    const dbUserData = await userser.findOne({
       where: {
         email: req.body.email,
       },
@@ -44,7 +44,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 // Log user out, destroy session
 router.post("/logout", (req, res) => {
