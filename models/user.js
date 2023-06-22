@@ -19,21 +19,33 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [20],
+              },
+        },
+        password: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        favourite_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'event',
-                key: 'favourited_by'
-            }
-        },
-        event_id: {
+        // favourite_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'event',
+        //         key: 'favourited_by'
+        //     }
+        // },
+        attending_event: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'event',
                 key: 'id'
             }
+        },
+        admin: {
+            // 0 = regular user / 1 = admin user
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {

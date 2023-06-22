@@ -48,6 +48,11 @@ Event.init(
               isDecimal: true
             }
         },
+        event_photo: {
+            type:DataTypes.STRING,
+            // only in seeded data, so allowNull enabled
+            allowNull: true
+        },
         time: {
             // Sequelize DataType Date becomes converted to DATETIME in MySQL (YYYY-MM-DD HH:MI:SS)
             type: DataTypes.DATE,
