@@ -30,10 +30,6 @@ Event.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             // no autoIncrement as linked to unique user ID
-            // references: {
-            //     model: 'user',
-            //     key: 'id',
-            // },
         },
         // event status (0 = not started / 1 = in progress / 2 = completed)
         status: {
@@ -65,6 +61,7 @@ Event.init(
                 isDate: true
             }
         },
+        // foreign key references through index & through Ticket
         // tag_id: {
         //     type: DataTypes.INTEGER,
         //     // references: {

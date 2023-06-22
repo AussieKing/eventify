@@ -1,7 +1,7 @@
 // import models
 const User = require ('./User');
 const Event = require ('./Event');
-// const Tag = require ('./Tag');
+const Tag = require ('./Tag');
 const Ticket = require('./Ticket')
 
 // User belongsToMany Events
@@ -42,15 +42,16 @@ Event.belongsToMany(User, {
 // });
 
 // // Tags belongsToMany (can be attributed to many) Events
-// Tag.belongsToMany(Event, {
-//     through: {
-//         model: Ticket 
-//     },
-//     foreignKey: 'tag_id'
-// });
+Tag.belongsToMany(Event, {
+    through: {
+        model: Ticket 
+    },
+    foreignKey: 'tag_id'
+});
 
 module.exports = {
     User,
     Event,
+    Tag,
     Ticket,
 };
