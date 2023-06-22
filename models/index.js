@@ -2,6 +2,7 @@
 const User = require ('./User');
 const Event = require ('./Event');
 const Tag = require ('./Tag');
+const Ticket = require('./Ticket')
 
 // User belongsToMany Events
 // One user can host one or more events
@@ -22,15 +23,10 @@ User.hasMany(Event, {
 // An Event can have multiple (belongsToMany) Users (attendees)
 Event.belongsToMany(User, {
     through: {
-        model: Event
+        model: Ticket
     },
     foreignKey: 'attending_event',
 })
-
-// User can have many (belongsToMany) Event
-// User.belongsToMany(Event, {
-//     foreignKey: 'favourite_id',
-// });
 
 // An Event can have multiple Tag
 Event.hasMany(Tag, {
@@ -40,7 +36,7 @@ Event.hasMany(Tag, {
 // Tags belongsToMany (can be attributed to many) Events
 Tag.belongsToMany(Event, {
     through: {
-        model: Event
+        model: Ticket 
     },
     foreignKey: 'tag_id'
 });
@@ -49,4 +45,5 @@ module.exports = {
     User,
     Event,
     Tag,
+    Ticket,
 };
