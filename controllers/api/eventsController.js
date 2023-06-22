@@ -3,13 +3,13 @@ const router = require("express").Router();
 const { Event } = require("../../models");
 // When a user searches for a event tag or a location direct user to the events page
 
-//! router.get("/events") for all events that match that specific query (location &/or tags)
+//! router.get("/events") for all events that match that specific query (tags)
 
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const dbEventData = await event.findAll({
       where: {
-        tag_name: "",
+        event_tag: req.body.tag,
       },
 
       include: [
@@ -26,10 +26,7 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const event = dbEventData.map((event) => event.get({ plain: true }));
-    res.render("events", {
-      event,
-      loggedIn: req.session.loggedIn,
-    });
+    res.render("events", { event });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
