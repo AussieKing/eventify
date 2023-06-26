@@ -1,13 +1,30 @@
-// Implements authentication middleware to protect certain routes from unauthorized access.
+const LocalStrategy = require('passport-local').Strategy
+const bcrypt = require('bcrypt')
+const errorHandler = require("./errorMiddleware")
 
+function initialize(passport, getUserByEmail, getUserById) {
+  const authenticateUser = async (email, password, done) => {
+    const user = getUserByEmail(email)
+    if (user == null) {
+      return done(null, false, { message: 'No user with that email' })
+    }
 
-//Checks if user is logged in
-const withAuth = (req, res, next) => {
-  if (!req.session.logged_in) {
-    res.redirect("/login");
-  } else {
-    next();
+    try {
+      if (await bcrypt.compare(password, user.password)) {
+        return done(null, user)
+      } else {
+        return done(null, false, { message: 'Password incorrect' })
+      }
+    } catch (err) {
+      return done(errorHandler)
+    }
   }
-};
 
-module.exports = withAuth;
+  passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
+  passport.serializeUser((user, done) => done(null, user.id))
+  passport.deserializeUser((id, done) => {
+    return done(null, getUserById(id))
+  })
+}
+
+module.exports = initialize
