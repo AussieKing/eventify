@@ -1,5 +1,5 @@
 // Handles all request related to log in
-const { user } = require("../../models");
+const { User } = require("../../models");
 const router = require("express").Router();
 
 // When login button is pressed, direct to login page.
