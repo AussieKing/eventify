@@ -1,4 +1,5 @@
 // Contains the configuration for connecting to your MySQL database using Sequelize.
+
 require('dotenv').config();
 
 const Sequelize = require('sequelize');
@@ -13,4 +14,3 @@ const sequelize = process.env.JAWSDB_URL
       },
     });
 
-module.exports = sequelize;

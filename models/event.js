@@ -79,4 +79,3 @@ Event.init(
     }
 );
 
-module.exports = Event;

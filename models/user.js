@@ -1,5 +1,6 @@
 // Represents the User model with properties like username, email, password, etc.
 
+
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
