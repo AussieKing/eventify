@@ -1,4 +1,4 @@
-/* Amber Light scheme (Default) */
+/* Amber Light scheme (Default)
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
