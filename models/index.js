@@ -1,9 +1,9 @@
 // import models
-const User = require ('./User');
-const Event = require ('./Event');
-const Tag = require ('./Tag');
-const Ticket = require('./Ticket')
 
+const Event = require("./event");
+const Tag = require("./Tag");
+const Ticket = require("./Ticket");
+const User = require("./user");
 // User belongsToMany Events
 // One user can host one or more events
 // User.hasMany(Event, {
@@ -16,11 +16,11 @@ const Ticket = require('./Ticket')
 // });
 
 Event.belongsToMany(User, {
-    through: {
-        model: Ticket
-    },
-    // foreignKey: 'host_id',
-})
+  through: {
+    model: Ticket,
+  },
+  // foreignKey: 'host_id',
+});
 
 // User can attend many (hasMany) Event
 // User.hasMany(Event, {
@@ -29,12 +29,12 @@ Event.belongsToMany(User, {
 
 // An Event can have multiple (belongsToMany) Users (attendees)
 Event.belongsToMany(User, {
-    through: {
-        model: Ticket
-    },
-    foreignKey: 'attending_event',
-    as: 'attending_events'
-})
+  through: {
+    model: Ticket,
+  },
+  foreignKey: "attending_event",
+  as: "attending_events",
+});
 
 // An Event can have multiple Tag
 // Event.hasMany(Tag, {
@@ -43,15 +43,15 @@ Event.belongsToMany(User, {
 
 // // Tags belongsToMany (can be attributed to many) Events
 Tag.belongsToMany(Event, {
-    through: {
-        model: Ticket 
-    },
-    foreignKey: 'tag_id'
+  through: {
+    model: Ticket,
+  },
+  foreignKey: "tag_id",
 });
 
 module.exports = {
-    User,
-    Event,
-    Tag,
-    Ticket,
+  User,
+  Event,
+  Tag,
+  Ticket,
 };
