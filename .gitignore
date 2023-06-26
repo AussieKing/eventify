@@ -1,2 +1,9 @@
-node_modules
+
+node_modules/
+.DS_Store
 .env
+.vs_code
+.prettierrc.json
+.prettierignore
+.eslintignore
+.eslintrc.json
