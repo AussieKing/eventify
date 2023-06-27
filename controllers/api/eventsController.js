@@ -7,7 +7,7 @@ const { Event } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const dbEventData = await Event.findAll({
+    const dbEventData = await Event.findAllbypk({
       // where: {
       //   event_title: req.body.title,
       // },

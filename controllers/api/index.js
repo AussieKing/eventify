@@ -1,14 +1,15 @@
 const router = require("express").Router();
 // const ErrorHandler = require("../../middlewares/errorMiddleware");
 const eventsRouter = require("./eventsController");
-const userRouter = require("./userController");
 const loginRouter = require("./loginLogoutController");
-const adminRouter = require("./adminController");
+// const adminRouter = require("./adminController");
+const homeController = require("./homeController");
 
 router.use("/events", eventsRouter);
 router.use("/login", loginRouter);
-// router.use("/admin", adminRouter);
+router.use("/", homeController);
 
+// router.use("/admin", adminRouter);
 // router.use(initialize);
 // router.use(ErrorHandler);
 
