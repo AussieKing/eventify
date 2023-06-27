@@ -9,9 +9,8 @@ router.get("/", async (req, res) => {
   try {
     const dbEventData = await Event.findAll({
       where: {
-        event_tag: req.body.tag,
+        event_title: req.body.title,
       },
-
       include: [
         {
           model: Event,
@@ -24,9 +23,9 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
+    res.status(200).json(dbEventData);
     const event = dbEventData.map((event) => event.get({ plain: true }));
-    res.render("events", { event });
+    res.render("eventDetails", { event });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
