@@ -5,6 +5,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // Initialize User model (table) by extending off Sequelize's Model class
 class User extends Model {}
+
 User.init(
   {
     // define columns
@@ -51,6 +52,11 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: "user",
-  }
+  },
 );
+
+User.prototype.validPassword = function (password) {
+  return this.password === password
+}
+
 module.exports = User;
