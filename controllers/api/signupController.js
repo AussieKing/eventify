@@ -6,7 +6,7 @@ const router = require("express").Router();
 // Then post request to create new User.
 // automatically log in User after account has been created.
 
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
