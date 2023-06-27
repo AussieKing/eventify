@@ -1,14 +1,14 @@
-// code for determining if user is admin
+// // code for determining if user is admin
 
-const isAdmin = findone({
-  where: {
-    admin: req.body.admin,
-  },
-}); 
+// const isAdmin = findone({
+//   where: {
+//     admin: req.body.admin,
+//   },
+// });
 
-if (!isAdmin) {
-  throw errors;
-} else {
-  next();
-}
-module.exports = isAdmin;
+// if (!isAdmin) {
+//   throw errors;
+// } else {
+//   next();
+// }
+// module.exports = isAdmin;

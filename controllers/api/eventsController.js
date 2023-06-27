@@ -8,24 +8,24 @@ const { Event } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const dbEventData = await Event.findAll({
-      where: {
-        event_title: req.body.title,
-      },
-      include: [
-        {
-          model: Event,
-          attributes: [
-            "event_name",
-            "event_description",
-            "event_location",
-            "host_name",
-          ],
-        },
-      ],
+      // where: {
+      //   event_title: req.body.title,
+      // },
+      // include: [
+      //   {
+      //     model: Event,
+      //     attributes: [
+      //       "event_title",
+      //       "event_description",
+      //       "event_location",
+      //       "host_id",
+      //     ],
+      //   },
+      // ],
     });
-    res.status(200).json(dbEventData);
-    const event = dbEventData.map((event) => event.get({ plain: true }));
-    res.render("eventDetails", { event });
+    const eventlist = dbEventData.map((event) => event.get({ plain: true }));
+    res.status(200).json(eventlist);
+    res.render("eventDetails", { eventlist });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
