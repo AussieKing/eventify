@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.engine("handlebars", exphbs);
 app.set("view engine", "handlebars");
+app.use(require("./controllers/api/index"));
 
 app.listen(PORT, () => {
   console.log("Server listening on: http://localhost:" + PORT);

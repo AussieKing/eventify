@@ -4,24 +4,24 @@ const isAdmin = require("../../middlewares/isAdmin");
 // router.get("/admin")
 
 // POST to add an event
-router.post("/admin", isAdmin, async (req, res) => {
-  try {
-    const dbUserData = await Event.create({
-      event_title: req.body.event_title,
-      event_description: req.body.event_description,
-      host_id: req.body.host_id,
-      status: req.body.status,
-      location: req.body.location,
-      time: req.body.time,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.post("/admin", isAdmin, async (req, res) => {
+//   try {
+//     const dbUserData = await Event.create({
+//       event_title: req.body.event_title,
+//       event_description: req.body.event_description,
+//       host_id: req.body.host_id,
+//       status: req.body.status,
+//       location: req.body.location,
+//       time: req.body.time,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-// UPDATE to update an event
-router.post("/admin", isAdmin, async (req, res) => {});
+// // UPDATE to update an event
+// router.post("/admin", isAdmin, async (req, res) => {});
 
-// DELETE to delete events / users
-router.delete("/admin/:id");
+// // DELETE to delete events / users
+// router.delete("/admin/:id");
