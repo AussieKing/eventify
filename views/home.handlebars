@@ -1,4 +1,4 @@
-The template for the home page that displays a list of upcoming events.
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -20,25 +20,23 @@ The template for the home page that displays a list of upcoming events.
 
   <body class="container" style="background-color:rgb(255, 162, 0)">
     {{! class container so that it has padding on the sides }}
-    <header>
-      <h1 class="text-center">Unleash your eventful side!</h1>
-    </header>
-
+    
    <div class="container-sm">
     {{! buttons for login and sign up }}
     <div class="d-grid gap-2 col-3 d-md-block mx-auto">
-      <button class="btn btn-primary" type="button">Login</button>
-      <button class="btn btn-primary" type="button">Sign up</button>
+      <button class="btn btn-primary" type="button"><a href="/login"><p class = "text-white">Login</p></a></button>
+      <button class="btn btn-primary" type="button"><a href="/signup"><p class = "text-white">Sign up</p></a></button>
     </div>
-    <img src="/assets/images/logo-color.png" alt="Eventify logo in color" class="rounded mx-auto d-block">
+    
     {{! search buttons }}
+    <h4>Search the event you're looking for by a specific name (example: "Outdoor Movie Night")</h4>
     <div class="input-group rounded">
-      <input type="search" class="form-control rounded" placeholder="Search Event by Tag" aria-label="Search" aria-describedby="search-addon"/>
-      <span class="input-group-text border-0" id="search-addon">
+      <input type="search" class="form-control rounded" placeholder="Search all events by name" aria-label="Search" aria-describedby="search-addon"/>
+        <button class="btn btn-primary"><a href="/events"><p class = "text-white">Search</p></a></button>
         <i class="fas fa-search fa-sm"></i>
       </span>
     </div>
-    <h4>Search the event you're looking for by a specific name (example: "party")</h2>
+    
 
       
 

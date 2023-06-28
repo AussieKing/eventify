@@ -24,12 +24,14 @@ router.get("/", async (req, res) => {
       // ],
     });
     const eventlist = dbEventData.map((event) => event.get({ plain: true }));
-    res.status(200).json(eventlist);
+    // res.status(200).json(eventlist);
     res.render("eventDetails", { eventlist });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;

@@ -6,6 +6,10 @@ const router = require("express").Router();
 //Then POST request to recieve login details and check them against the data base.
 //If match, save session, give user access to other web pages (set loggedIn as true)
 
+router.get("/", (req, res) => {
+  res.render("login");
+});
+
 router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
