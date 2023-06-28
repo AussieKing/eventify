@@ -7,14 +7,14 @@
 
   {{#each event}}
     <div class="event">
-      <h3>Event Title: {{eventlist.event_title}}</h3>
-      <p>Event Description: {{eventlist.event_description}}</p>
-      <p>Date: {{eventlist.time}}</p>
-      <p>Location: {{eventlist.location}}</p>
+      <h3>{{event_title}}</h3>
+      <p>{{event_description}}</p>
+      <p>📅 {{time}}</p>
+      <p>📍Location: {{location}}</p>
     </div>
   {{/each}}
 
   {{eventlist}}
-  {{event}}
+  {{event_title}}
 
 </body>
