@@ -1,4 +1,4 @@
-The template for the home page that displays a list of upcoming events.
+{{!-- The template for the home page that displays a list of upcoming events. --}}
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -38,8 +38,14 @@ The template for the home page that displays a list of upcoming events.
         <i class="fas fa-search fa-sm"></i>
       </span>
     </div>
-    <h4>Search the event you're looking for by a specific name (example: "party")</h2>
-
+    <p>Search the event you're looking for by a specific name (example: "party")</p>
+     <div class="input-group rounded">
+      <input type="search" class="form-control rounded" placeholder="Search Event by Tag" aria-label="Search" aria-describedby="search-addon"/>
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search fa-sm"></i>
+      </span>
+    </div>
+    <p>Search the event you're looking for by a specific location (example: "Adelaide")</p>
       
 
   <div class="container-lg p-3 my-3 text-center"> 
@@ -49,15 +55,15 @@ The template for the home page that displays a list of upcoming events.
         <div class="d-flex align-items-stretch">
           <div class="icon-section">
           <div class="icon">
-            <img src="/assets/images/person.png" />
+            <img src="/public/img/person.png" />
             <p>Create an account</p>
           </div>
           <div class="icon">
-            <img src="/assets/images/people.png" />
+            <img src="/public/img/people together.png" />
             <p>Join an event</p>
           </div>
           <div class="icon">
-            <img src="/assets/images/fun.png" />
+            <img src="/public/img/dancing.png" />
             <p>Have fun!</p>
           </div>
         </div>

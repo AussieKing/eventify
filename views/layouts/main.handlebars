@@ -10,13 +10,23 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    {{! potentially also <link> to a custom css file, and <script> for fontawesome/google fonts, jquery, etc?  }}
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
-    ></script>
-      {{{body}}}
+    >
+    </script>
   </head>
 
+  <body>
+    <nav class="navbar justify-content-end"></nav>
+    <div class="container">
+      <button type="button" class="btn btn-light float-md-end">Admin</button>
+    </div>
+
+    {{{body}}}
   </body>
+
 </html>
