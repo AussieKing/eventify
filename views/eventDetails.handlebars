@@ -1,13 +1,20 @@
 {{! The template for displaying the details of a specific event. }}
+<body class="container" style="background-color:rgb(255, 162, 0)">
+  <h1>Testing events
 
-{{!-- {{#each events}} and {{/each}} are Handlebars.js block helpers used to iterate over the events array passed from the controller. --}}
-<div class="event-list">
-  {{#each event as |event|}}
+  </h1>
+  {{!-- {{#each events}} and {{/each}} are Handlebars.js block helpers used to iterate over the events array passed from the controller. --}}
+
+  {{#each event}}
     <div class="event">
-      <h3>{{event.event_title}}</h3>
-      <p>{{event.event_description}}</p>
-      <p>Date: {{event.time}}</p>
-      <p>Location: {{event.location}}</p>
+      <h3>Event Title: {{eventlist.event_title}}</h3>
+      <p>Event Description: {{eventlist.event_description}}</p>
+      <p>Date: {{eventlist.time}}</p>
+      <p>Location: {{eventlist.location}}</p>
     </div>
   {{/each}}
-</div>
+
+  {{eventlist}}
+  {{event}}
+
+</body>
