@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 const passport = require('passport');
 
-router.get("/", passport.authenticate('login') (req, res) => {
+router.get("/", passport.authenticate('login'), (req, res) => {
   res.render("adminPage");
 });
 

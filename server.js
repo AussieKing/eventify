@@ -6,7 +6,8 @@ const controllers = require("./controllers/api/index");
 
 const passport = require('passport');
 const session = require('express-session');
-const connection = require('./config/connection')
+const sequelize = require("./config/connection");
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,18 +16,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, "public")));
 
-// Cookie with 24hr expiry date
-let expireDate = new Date();
-expireDate.setDate(expireDate.getDate() + 1);
-
-// For Passport
-app.use(session({
-  secret: 'keyboard cat',
-  store: sessionStore,
+// For Passport & session
+const sess = {
+  secret: 'noot noot',
   resave: true, 
-  saveUninitialized:true,
-  cookie: { expires: expireDate }
-  })); // session secret
+  saveUninitialized: true,
+  // cookie expires in 1 day
+  cookie: { maxAge: 24 * 60 * 60 * 1000 },
+  // store: new SequelizeStore({
+  //   db: sequelize,
+  // }),
+};
+
+
+app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
