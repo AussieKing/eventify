@@ -17,6 +17,11 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(controllers);
 
+// app.get('*', (req, res, next) => {
+//   res.locals.header = 'header'; // Register the header partial as 'header'
+//   next();
+// });
+
 app.listen(PORT, () => {
   console.log("Server listening on: http://localhost:" + PORT);
 });

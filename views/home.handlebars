@@ -21,16 +21,17 @@
   <body class="container" style="background-color:rgb(255, 162, 0)">
     {{! class container so that it has padding on the sides }}
     <header>
+        {{!-- {{> header}} <!-- Include the header partial --> --}}
       <h1 class="text-center">Unleash your eventful side!</h1>
     </header>
 
    <div class="container-sm">
-    {{! buttons for login and sign up }}
+    {{!-- {{! buttons for login and sign up }}
     <div class="d-grid gap-2 col-3 d-md-block mx-auto">
       <button class="btn btn-primary" type="button">Login</button>
       <button class="btn btn-primary" type="button">Sign up</button>
     </div>
-    <img src="/assets/images/logo-color.png" alt="Eventify logo in color" class="rounded mx-auto d-block">
+    <img src="/assets/images/logo-color.png" alt="Eventify logo in color" class="rounded mx-auto d-block"> --}}
     {{! search buttons }}
     <div class="input-group rounded">
       <input type="search" class="form-control rounded" placeholder="Search Event by Tag" aria-label="Search" aria-describedby="search-addon"/>
@@ -38,14 +39,8 @@
         <i class="fas fa-search fa-sm"></i>
       </span>
     </div>
-    <p>Search the event you're looking for by a specific name (example: "party")</p>
-     <div class="input-group rounded">
-      <input type="search" class="form-control rounded" placeholder="Search Event by Tag" aria-label="Search" aria-describedby="search-addon"/>
-      <span class="input-group-text border-0" id="search-addon">
-        <i class="fas fa-search fa-sm"></i>
-      </span>
-    </div>
-    <p>Search the event you're looking for by a specific location (example: "Adelaide")</p>
+    <h4>Search the event you're looking for by a specific name (example: "party")</h2>
+
       
 
   <div class="container-lg p-3 my-3 text-center"> 
@@ -63,7 +58,7 @@
             <p>Join an event</p>
           </div>
           <div class="icon">
-            <img src="/public/img/dancing.png" />
+            <img src="/assets/images/fun.png" />
             <p>Have fun!</p>
           </div>
         </div>
