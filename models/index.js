@@ -15,10 +15,12 @@ const User = require("./user");
 //     foreignKey: 'host_id',
 // });
 
-Event.belongsToMany(User, {
+User.belongsToMany(Event, {
   through: {
     model: Ticket,
+    unique: false,
   },
+  as: "rsvp_event",
   // foreignKey: 'host_id',
 });
 
@@ -31,9 +33,9 @@ Event.belongsToMany(User, {
 Event.belongsToMany(User, {
   through: {
     model: Ticket,
+    unique: false,
   },
-  foreignKey: "attending_event",
-  as: "attending_events",
+  as: "guests",
 });
 
 // An Event can have multiple Tag

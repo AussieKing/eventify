@@ -1,19 +1,18 @@
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-
-    const response = await fetch(`/api/projects/${id}`, {
+const deleteEventHandler = async (event) => {
+  const deleteEventID = document.querySelector("#delete-event-id").value.trim();
+  if (deleteEventID) {
+    const response = await fetch(`/admin/${deleteEventID}`, {
       method: "DELETE",
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/admin");
     } else {
-      alert("Failed to delete project");
+      alert("Failed to delete event");
     }
   }
 };
 
 document
-  .querySelector(".project-list")
-  .addEventListener("click", delButtonHandler);
+  .querySelector("#delete-event-btn")
+  .addEventListener("click", deleteEventHandler);
