@@ -10,6 +10,7 @@ router.use("/admin", adminRouter);
 router.use("/events", eventsRouter);
 router.use("/login", loginRouter);
 router.use("/signup", signupController);
+
 router.use("/", homeController);
 
 // router.use(initialize);

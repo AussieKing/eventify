@@ -7,6 +7,20 @@ const bcrypt = require('bcrypt')
 // Then post request to create new User.
 // automatically log in User after account has been created.
 
+// <<<<<<< got_post_req_working
+// router.post("/", async (req, res) => {
+//   try {
+//     const dbUserData = await User.create({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
+//     req.session.save(() => {
+//       req.session.loggedIn = true;
+//       res.status(200).json(dbUserData);
+// =======
+
+
 // POST route for new user signup
 router.post("/signup", async (req, res) => {
   try {
@@ -26,6 +40,7 @@ router.post("/signup", async (req, res) => {
     // for debugging 
     res.status(200).json(dbUserData);
     // console.log(dbUserData);
+
 
     });
   } catch (err) {

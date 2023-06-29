@@ -32,4 +32,8 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/", )
+
+router.delete("/:id");
+
 module.exports = router;

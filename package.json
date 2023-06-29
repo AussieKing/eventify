@@ -29,7 +29,8 @@
     "passport-local": "^1.0.0",
     "prettier": "^2.8.8",
     "seed": "^0.4.4",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "jquery": "^3.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
