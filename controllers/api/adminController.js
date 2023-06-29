@@ -21,8 +21,12 @@ const { Event } = require("../../models");
 
 const passport = require('passport');
 
-router.get("/", passport.authenticate('login'), (req, res) => {
-  res.render("adminPage");
+router.get("/", passport.authenticate('login'), async (req, res) => {
+  try {
+    res.render("adminPage");
+  } catch (err) {
+    document.location.replace('/');
+  }
 });
 
 // POST to create an event

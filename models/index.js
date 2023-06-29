@@ -42,12 +42,12 @@ Event.belongsToMany(User, {
 // });
 
 // // Tags belongsToMany (can be attributed to many) Events
-Tag.belongsToMany(Event, {
-  through: {
-    model: Ticket,
-  },
-  foreignKey: "tag_id",
-});
+// Tag.belongsToMany(Event, {
+//   through: {
+//     model: Ticket,
+//   },
+//   foreignKey: "tag_id",
+// });
 
 module.exports = {
   User,
