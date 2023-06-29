@@ -19,9 +19,9 @@ const { Event } = require("../../models");
 // const isAdmin = require("../../middlewares/isAdmin");
 // If user is an admin load the admin page
 
-const passport = require('passport');
+const passport = require("passport");
 
-router.get("/", passport.authenticate('login'), (req, res) => {
+router.get("/", (req, res) => {
   res.render("adminPage");
 });
 
@@ -49,6 +49,23 @@ router.post("/", async (req, res) => {
 // // UPDATE to update an event
 
 // // DELETE to delete events / users
-// router.delete("/:id");
+router.delete("/:id", async (req, res) => {
+  try {
+    const eventData = await Event.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!eventData) {
+      res.status(404).json({ message: "No project found with this id!" });
+      return;
+    }
+
+    res.status(200).json(eventData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
