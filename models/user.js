@@ -33,13 +33,14 @@ User.init(
     //         key: 'favourited_by'
     //     }
     // },
-    attending_event: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "event",
-        key: "id",
-      },
-    },
+    // attending_event: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "event",
+    //     key: "id",
+
+    //   },
+    // },
     admin: {
       // 0 = regular user / 1 = admin user
       type: DataTypes.INTEGER,
@@ -52,11 +53,11 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: "user",
-  },
+  }
 );
 
 User.prototype.validPassword = function (password) {
-  return this.password === password
-}
+  return this.password === password;
+};
 
 module.exports = User;

@@ -2,6 +2,7 @@
   class="container"
   style="background-color:rgb(255, 162, 0); margin-top:10px"
 >
+{{!-- Create Event --}}
 
   <h2 style="margin-top: 10px;">Add an event!</h2>
 
@@ -58,7 +59,54 @@
     </div>
   </form>
 
-  <script src="/js/createEvent.js"></script>
+{{!-- Update Event Location--}}
+
+<h2 style="margin-top: 10px;">Update an event location!</h2>
+
+  <form class="form update-event-form">
+    <div class="form-group">
+      <label for="update-event-id">Event ID:</label>
+      <input class="form-input" type="text" id="update-event-id" name="update-event-id" />
+    </div>
+    <div class="form-group">
+      <label for="new-location">New Location</label>
+      <input
+        class="form-input"
+        type="text"
+        id="new-location"
+        name="new-location"
+      />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+
+
+{{!-- Delete Event by ID --}}
+
+<h2 style="margin-top: 10px;">Delete an Event!</h2>
+
+  <form  class="form delete-event-form">
+    <div class="form-group">
+      <label for="delete-event-id">Event ID:</label>
+      <input class="form-input" type="text" id="delete-event-id" name="delete-event-id" />
+    </div>
+    <div class="form-group">
+      <button id="delete-event-btn"style="margin-top: 10px; margin-bottom:50px" type="submit" class="btn btn-primary">Delete</button>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+    <script src="/js/updateEvent.js"></script>
+    <script src="/js/deleteEvent.js"></script>
+    <script src="/js/createEvent.js"></script>
 
 </body>
 
