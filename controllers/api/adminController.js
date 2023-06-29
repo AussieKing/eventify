@@ -19,7 +19,9 @@ const { Event } = require("../../models");
 // const isAdmin = require("../../middlewares/isAdmin");
 // If user is an admin load the admin page
 
-router.get("/", (req, res) => {
+const passport = require('passport');
+
+router.get("/", passport.authenticate('login'), (req, res) => {
   res.render("adminPage");
 });
 
