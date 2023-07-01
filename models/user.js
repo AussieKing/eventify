@@ -54,6 +54,7 @@ User.init(
       // 0 = regular user / 1 = admin user
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
   },
   {

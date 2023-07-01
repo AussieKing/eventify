@@ -42,10 +42,14 @@ app.use(passport.session()); // persistent login sessions
 
 app.use(controllers);
 
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(PORT, () =>
+//     console.log(
+//       `\nServer running on port ${PORT}. Visit http://localhost:${PORT}!`
+//     )
+//   );
+// });
+
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT}!`
-    )
-  );
+  app.listen(PORT, () => console.log(`\nServer running on port ${PORT}. Visit http://localhost:${PORT}!`));
 });
