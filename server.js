@@ -37,8 +37,8 @@ const sess = {
 app.use(session(sess));
 
 // helmet: dependency to secure express app by setting various HTTP headers
-// const helmet = require("helmet");
-// app.use(helmet());
+const helmet = require("helmet");
+app.use(helmet());
 
 // app.use(passport.initialize());
 // app.use(passport.session()); // persistent login sessions
