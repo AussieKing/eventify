@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
 router.post("/login", async (req, res) => {
   // find user in database
   try {
+    
     const dbUserData = await User.findOne({
       where: {
         email: req.body.email,
