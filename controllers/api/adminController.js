@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Event } = require("../../models");
+const { isAdmin } = require("../../middlewares/isAdmin");
 
 // const NewEvent = async (req, res) => {
 //   const dbEventData = await Event.create({
@@ -19,13 +20,14 @@ const { Event } = require("../../models");
 // const isAdmin = require("../../middlewares/isAdmin");
 // If user is an admin load the admin page
 
-const passport = require("passport");
-
-router.get("/", async (req, res) => {
+router.get("/", isAdmin, (req, res) => {
+      
   try {
     res.render("adminPage");
+
   } catch (err) {
     document.location.replace('/');
+    alert('You must be logged in to view this page.');
   }
 });
 

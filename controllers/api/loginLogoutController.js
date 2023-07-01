@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.email = userData.email;
       req.session.logged_in = true;
+      req.session.admin = userData.admin;
 
       res.status(200).json(userData);
     });
@@ -60,6 +61,7 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.email = dbUserData.email;
       req.session.logged_in = true;
+      req.session.admin = dbUserData.admin;
 
       res
         .status(200)
