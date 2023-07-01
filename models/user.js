@@ -8,7 +8,12 @@ const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt');
 
 // Initialize User model (table) by extending off Sequelize's Model class
-class User extends Model {}
+class User extends Model {
+  // user bcrypt to validate password when user logs in 
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init(
   {
