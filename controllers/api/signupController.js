@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt')
 // Then post request to create new User.
 // automatically log in User after account has been created.
 
-// <<<<<<< got_post_req_working
 // router.post("/", async (req, res) => {
 //   try {
 //     const dbUserData = await User.create({
@@ -16,13 +15,12 @@ const bcrypt = require('bcrypt')
 //       password: req.body.password,
 //     });
 //     req.session.save(() => {
-//       req.session.loggedIn = true;
+//       req.session.logged_in = true;
 //       res.status(200).json(dbUserData);
-// =======
 
 
 // POST route for new user signup
-router.post("/signup", async (req, res) => {
+router.post("/newuser", async (req, res) => {
   try {
     // use bcrypt to hash the new user password
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -32,7 +30,7 @@ router.post("/signup", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
 
     // redirect user once signed up
     res.redirect('/login')

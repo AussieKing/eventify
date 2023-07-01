@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 // When login button is pressed, direct to login page.
 // Then POST request to recieve login details and check them against the data base.
-// If match, save session, give user access to other web pages (set loggedIn as true)
+// If match, save session, give user access to other web pages (set logged_in as true)
 
 router.get("/", (req, res) => {
   res.render("login");

@@ -13,6 +13,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/');
+        alert('You are now logged in!');
       } else {
         alert('Failed to log in.');
       }
@@ -28,7 +29,7 @@ const loginFormHandler = async (event) => {
   
     if (email && password) {
         // TODO: check routing
-      const response = await fetch('/users', {
+      const response = await fetch('/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -36,6 +37,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/');
+        alert('You are now signed up!');
       } else {
         alert('Failed to sign up.');
       }
