@@ -20,6 +20,7 @@ const { Event } = require("../../models");
 // If user is an admin load the admin page
 
 const passport = require("passport");
+const { update } = require("../../models/event");
 
 router.get("/", (req, res) => {
   res.render("adminPage");
@@ -46,9 +47,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// // UPDATE to update an event
-
-// // DELETE to delete events / users
+// DELETE to delete events
 router.delete("/:id", async (req, res) => {
   try {
     const eventData = await Event.destroy({
@@ -58,13 +57,38 @@ router.delete("/:id", async (req, res) => {
     });
 
     if (!eventData) {
-      res.status(404).json({ message: "No project found with this id!" });
+      res.status(404).json({ message: "No event found with this id!" });
       return;
     }
 
     res.status(200).json(eventData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const updateEventData = await Event.update(
+      {
+        location: req.body.locatio,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    if (updateEventData[0] === 0) {
+      res.status(404).json({ message: "No event found with this id!" });
+      return;
+    }
+
+    res.status(200).json({ message: "Event updated successfully!" });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
   }
 });
 
