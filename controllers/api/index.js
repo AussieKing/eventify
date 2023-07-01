@@ -5,13 +5,11 @@ const loginRouter = require("./loginLogoutController");
 const adminRouter = require("./adminController");
 const homeController = require("./homeController");
 const signupController = require("./signupController");
-const userController = require("./userRoutes")
 
 router.use("/admin", adminRouter);
 router.use("/events", eventsRouter);
 router.use("/login", loginRouter);
 router.use("/signup", signupController);
-router.use("/users", userController);
 
 router.use("/", homeController);
 
