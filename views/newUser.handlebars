@@ -1,5 +1,5 @@
 <body class="container" style="background-color:rgb(255, 162, 0)">
-<form >
+<form class="signup-form">
 
   <!-- Grid -->
   {{!-- <div class="grid text-centre">
@@ -18,15 +18,17 @@
   </div> --}}
 
   <!-- Markup example 2: input is after label -->
-  <label for="username">Email address</label>
-  <input type="username" id="username" name="username" placeholder="Email address" required>
+  <label for="email">Email address</label>
+  <input type="email" id="email-signup" name="email" placeholder="Email address" required>
   <small>We'll never share your email with anyone else.</small>
 
   <label for="password">Password</label>
-  <input type="password" id="password" name="password" placeholder="Password" required>
+  <input type="password" id="password-signup" name="password" placeholder="Password" required>
 
   <!-- Button -->
   <button type="submit">Submit</button>
 
 </form>
 </div>
+
+<script src="/js/signup.js"></script>

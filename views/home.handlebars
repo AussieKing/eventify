@@ -24,7 +24,12 @@
    <div class="container-sm">
     {{! buttons for login and sign up }}
     <div class="d-grid gap-2 col-3 d-md-block mx-auto">
-      <button style="margin: 20px; position:absolute; right:51%; " class="btn btn-primary" type="button"><a href="/login"><p class = "text-white">Login</p></a></button>
+      <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <button style="margin: 20px; position:absolute; right:51%; " class="btn btn-primary" id="logout" type="button"><p class = "text-white">Logout</p></a></button>
+        {{else}}
+        <button style="margin: 20px; position:absolute; right:51%; " class="btn btn-primary" type="button"><a href="/login"><p class = "text-white">Login</p></a></button>
+        {{/if}}
       <button style="margin: 20px; position:relative; left: 51%; " class="btn btn-primary" type="button"><a href="/signup"><p class = "text-white">Sign up</p></a></button>
     </div>
     
@@ -66,5 +71,9 @@
         Lifelong Friendships! Explore a Vibrant World of Hiking, Reading,
         Networking, Skill Sharing, and More. Join the Fun Today!</h5>
     </div>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>

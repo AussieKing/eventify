@@ -3,8 +3,17 @@
 const { Model, DataTypes } = require("sequelize");
 // import our database connection from config.js
 const sequelize = require("../config/connection");
+
+// bcrypt to hash password
+const bcrypt = require('bcrypt');
+
 // Initialize User model (table) by extending off Sequelize's Model class
-class User extends Model {}
+class User extends Model {
+  // user bcrypt to validate password when user logs in 
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init(
   {
@@ -19,7 +28,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [20],
+        isEmail: true,
       },
     },
     password: {
@@ -45,9 +54,20 @@ User.init(
       // 0 = regular user / 1 = admin user
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
   },
   {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt')
 // Then post request to create new User.
 // automatically log in User after account has been created.
 
-// <<<<<<< got_post_req_working
 // router.post("/", async (req, res) => {
 //   try {
 //     const dbUserData = await User.create({
@@ -16,36 +15,45 @@ const bcrypt = require('bcrypt')
 //       password: req.body.password,
 //     });
 //     req.session.save(() => {
-//       req.session.loggedIn = true;
+//       req.session.logged_in = true;
 //       res.status(200).json(dbUserData);
-// =======
 
 
-// POST route for new user signup
-router.post("/signup", async (req, res) => {
+// // POST route for new user signup
+// router.post("/newuser", async (req, res) => {
+//   try {
+
+//     req.session.save(() => {
+//       req.session.logged_in = true;
+
+//     // redirect user once signed up
+//     res.redirect('/')
+
+//     // for debugging 
+//     res.status(200).json(dbUserData);
+//     // console.log(dbUserData);
+
+
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+router.post('/', async (req, res) => {
   try {
-    // use bcrypt to hash the new user password
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const dbUserData = await User.create({
-      email: req.body.email,
-      password: hashedPassword
-    });
+    // build a new instance of user model (from existing user)
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.email = userData.email;
+      req.session.logged_in = true;
 
-    // redirect user once signed up
-    res.redirect('/login')
-
-    // for debugging 
-    res.status(200).json(dbUserData);
-    // console.log(dbUserData);
-
-
+      res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
