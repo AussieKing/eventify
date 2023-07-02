@@ -112,11 +112,9 @@ Below are the Requirements we were given:
   10. Handlebars.js: [4.7.6](https://www.npmjs.com/package/handlebars/v/4.7.6)
   11. Node MySQL2: [2.2.5](https://www.npmjs.com/package/mysql2/v/2.2.5)
   12. Sequelize: [6.3.5](https://www.npmjs.com/package/sequelize/v/6.3.5)
-  13. Passport.js: [0.4.0](https://www.npmjs.com/package/passport/v/0.4.0)
+  13. Helmet: [7.0.0.](https://www.npmjs.com/package/helmet)
   14. Node seed: [0.4.4](https://www.npmjs.com/package/seed/v/0.4.4)
   15. jquery: [3.7.0](https://jqueryui.com/download/)
-
-  ### Walk-Through Video:
 
   ### Screenshots:
     - Landing page:
@@ -164,10 +162,8 @@ Email: <a href="mailto:fede.dordoni@gmail.com">fede.dordoni@gmail.com</a>
 
 [Link to my Github](https://github.com/AussieKing)
 
-Lauren Cho
+gh120515
 
-Email: <a href="mailto:"></a>
-
-[Link to my Github]()
+[Link to my GitHub](https://github.com/gh120515)
 
 Thanks for visiting!
