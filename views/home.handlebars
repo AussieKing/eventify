@@ -18,7 +18,7 @@
     ></script>
   </head>
 
-  <body class="container" style="background-color:rgb(255, 162, 0)">
+  <body class="container" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; background-color:rgb(255, 162, 0)">
     {{! class container so that it has padding on the sides }}
     
    <div class="container-sm">
@@ -34,10 +34,10 @@
     </div>
     
     {{! search buttons }}
-    <h4>Search the event you're looking for by a specific name (example: "Outdoor Movie Night")</h4>
+    <h4 class="text-center">Search the event you're looking for by a specific name (example: "Outdoor Movie Night")</h4>
     <div class="input-group rounded">
-      <input type="search" class="form-control rounded" placeholder="Search all events by name" aria-label="Search" aria-describedby="search-addon"/>
-        <button class="btn btn-primary"><a href="/events"><p class = "text-white">Search</p></a></button>
+      <input id="eventSearch" class="form-control rounded" placeholder="Search all events by name" aria-label="Search" aria-describedby="search-addon"/>
+        <button class="btn btn-primary"><a id="searchBtn" href="/events"><p class = "text-white">Search</p></a></button>
         <i class="fas fa-search fa-sm"></i>
       </span>
     </div>
@@ -50,17 +50,17 @@
       <h2>How does Eventify work?</h2>
       <p>Eventify is a platform that allows you to create and join events based on your interests. It's easy to use and free to join!</p>
         <div class="d-flex align-items-stretch">
-          <div class="icon-section">
+          <div class="container-lg p-3 my-3 text-center">
           <div class="icon">
-            <img style="margin: 25px; position:relative; width:50px" src="/images/icons/account-25.png" alt="Eventify logo no background" class="rounded mx-auto d-block" />
+            <img style="margin: 25px; position:relative; width:75px" src="/images/icons/account-25.png" alt="Eventify logo no background" class="rounded mx-auto d-block" />
             <p>Create an account</p>
           </div>
           <div class="icon">
-            <img style="margin: 25px; position:relative; width:50px" src="/images/icons/join-an-event.jpg" alt="Eventify logo no background" class="rounded mx-auto d-block" />
+            <img style="margin: 25px; position:relative; width:75px" src="/images/icons/join-an-event.jpg" alt="Eventify logo no background" class="rounded mx-auto d-block" />
             <p>Join an event</p>
           </div>
           <div class="icon">
-            <img style="margin: 25px; position:relative ;width:50px" src="/images/icons/1997780.png" alt="Eventify logo no background" class="rounded mx-auto d-block" />
+            <img style="margin: 25px; position:relative ;width:75px" src="/images/icons/1997780.png" alt="Eventify logo no background" class="rounded mx-auto d-block" />
             <p>Have fun!</p>
           </div>
         </div>

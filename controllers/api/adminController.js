@@ -2,36 +2,19 @@ const router = require("express").Router();
 const { Event } = require("../../models");
 const { isAdmin } = require("../../middlewares/isAdmin");
 
-// const NewEvent = async (req, res) => {
-//   const dbEventData = await Event.create({
-//     event_title: req.params.eventTitle,
-//     event_description: ,
-//     host_id: ,
-//     price: ,
-//     location: ,
-//     status: eventStatusEl,
-//     time: eventTimeEl,
-//   });
-
-//   const event = await Event.create(NewEvent);
-// };
-
-// const CreateEvent = await Event.create(NewEvent);
-// const isAdmin = require("../../middlewares/isAdmin");
-// If user is an admin load the admin page
+// Render the admin page IF user is admin
 
 router.get("/", isAdmin, (req, res) => {
-      
   try {
     res.render("adminPage");
-
   } catch (err) {
-    document.location.replace('/');
-    alert('You must be logged in to view this page.');
+    document.location.replace("/");
+    alert("You must be logged in to view this page.");
   }
 });
 
 // POST to create an event
+
 router.post("/", async (req, res) => {
   try {
     const dbEventData = await Event.create({
@@ -42,6 +25,7 @@ router.post("/", async (req, res) => {
       location: req.body.eventLocationEl,
       status: req.body.eventStatusEl,
       time: req.body.eventTimeEl,
+      event_photo: req.body.eventPhotoEl,
     });
     console.log(dbEventData);
     res.status(200).json(dbEventData);
@@ -52,7 +36,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-// // UPDATE to update an event
+// PUT to update an event
+
 router.put("/:id", async (req, res) => {
   try {
     const eventData = await Event.update(req.body, {
@@ -72,7 +57,8 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// // DELETE to delete events / users
+// DELETE to delete events
+
 router.delete("/:id", async (req, res) => {
   try {
     const eventData = await Event.destroy({

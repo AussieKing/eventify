@@ -1,16 +1,19 @@
 <body
-  class="container"
-  style="background-color:rgb(255, 162, 0); margin-top:10px"
+  class=" container-lg p-3 my-3 text-center"
+  style="background-color:rgb(255, 162, 0); margin-top:10px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
 >
-{{!-- Create Event --}}
+{{!-- Create Event --}} 
+<h6 style="margin-bottom: 25px; font-weight:bold">As an admin of Eventify, you have the ability to create, update and delete events. (More coming soon!) </h2>
 
-  <h2 style="margin-top: 10px;">Add an event!</h2>
+  <h3 style="margin-top: 10px;">Add an event!</h2>
 
-  <form class="form new-event-form">
+  <form style ="margin:20px" class="form new-event-form">
+    
     <div class="form-group">
-      <label for="event-name">Event Name:</label>
+      <label style ="margin:5px"  for="event-name">Event Name:</label>
       <input class="form-input" type="text" id="event-name" name="event-name" />
     </div>
+
     <div class="form-group">
       <label for="event-description">Event Description:</label>
       <input
@@ -20,16 +23,19 @@
         name="event-description"
       />
     </div>
+
     <div class="form-group">
-      <label for="host-id">Host ID:</label>
+      <label style ="margin:5px"for="host-id">Host ID:</label>
       <input class="form-input" type="number" id="host-id" name="host-id" />
     </div>
+
     <div class="form-group">
-      <label for="event-time">Event Time:</label>
+      <label style ="margin:5px" for="event-time">Event Time:</label>
       <input class="form-input" type="date" id="event-time" name="event-time" />
     </div>
+
     <div class="form-group">
-      <label for="event-locations">Event Location:</label>
+      <label style ="margin:5px" for="event-locations">Event Location:</label>
       <input
         class="form-input"
         type="text"
@@ -37,8 +43,9 @@
         name="event-location"
       />
     </div>
+
     <div class="form-group">
-      <label for="event-price">Event Price:</label>
+      <label style ="margin:5px" for="event-price">Event Price:</label>
       <input
         class="form-input"
         type="number"
@@ -46,8 +53,19 @@
         name="event-price"
       />
     </div>
+
     <div class="form-group">
-      <label for="event-status">Event Status:</label>
+    <label style ="margin:5px" for="event-photo">Event Photo Link:</label>
+    <input
+        class="form-input"
+        type="text"
+        id="event-photo"
+        name="event-photo"
+      />
+    </div>
+
+    <div class="form-group">
+      <label style="margin:5px" for="event-status">Event Status:</label>
      <input
         class="form-input"
         type="number"
@@ -55,21 +73,21 @@
         name="event-status"
       />
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Create</button>
+      <button style="margin:10px" type="submit" class="btn btn-primary">Create</button>
     </div>
   </form>
 
 {{!-- Update Event Location--}}
 
-<h2 style="margin-top: 10px;">Update an event location!</h2>
+<h3 class ="container-lg p-3 my-3 text-center">Update an event location!</h2>
 
-  <form class="form update-event-form">
+  <form class="form update-event-form ">
     <div class="form-group">
-      <label for="update-event-id">Event ID:</label>
+      <label style="margin:5px" for="update-event-id">Event ID:</label>
       <input class="form-input" type="text" id="update-event-id" name="update-event-id" />
     </div>
     <div class="form-group">
-      <label for="new-location">New Location</label>
+      <label style="margin:5px" for="new-location">New Location</label>
       <input
         class="form-input"
         type="text"
@@ -82,10 +100,31 @@
     </div>
   </form>
 
+  <h3 class ="container-lg p-3 my-3 text-center">Update an event date!</h2>
+
+  <form class="form update-event-date-form">
+    <div class="form-group">
+      <label style="margin:5px" for="update-event-id">Event ID:</label>
+      <input class="form-input" type="text" id="update-event-date-id" name="update-event-date-id" />
+    </div>
+    <div class="form-group">
+      <label style="margin:5px" for="new-time">New Date:</label>
+      <input
+        class="form-input"
+        type="date"
+        id="new-time"
+        name="time"
+      />
+    </div>
+    <div class="form-group">
+      <button id="update-event-date-btn" type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+
 
 {{!-- Delete Event by ID --}}
 
-<h2 style="margin-top: 10px;">Delete an Event!</h2>
+<h3 style="margin-top: 5px;">Delete an Event!</h2>
 
   <form  class="form delete-event-form">
     <div class="form-group">
@@ -93,7 +132,7 @@
       <input class="form-input" type="text" id="delete-event-id" name="delete-event-id" />
     </div>
     <div class="form-group">
-      <button id="delete-event-btn"style="margin-top: 10px; margin-bottom:50px" type="submit" class="btn btn-primary">Delete</button>
+      <button id="delete-event-btn"style="margin-top: 5px; margin-bottom:50px" type="submit" class="btn btn-primary">Delete</button>
     </div>
   </form>
 
@@ -102,7 +141,7 @@
 
 
 
-
+{{!-- import all js files --}}
 
     <script src="/js/updateEvent.js"></script>
     <script src="/js/deleteEvent.js"></script>

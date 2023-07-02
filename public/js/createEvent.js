@@ -12,6 +12,16 @@ const addEventFormHandler = async (event) => {
     .querySelector("#event-location")
     .value.trim();
   const eventStatusEl = document.querySelector("#event-status").value.trim();
+  const eventPhotoEl = document.querySelector("#event-photo").value.trim();
+
+  console.log(eventTitleEl);
+  console.log(eventDescriptionEl);
+  console.log(hostIDEl);
+  console.log(eventTimeEl);
+  console.log(eventLocationEl);
+  console.log(eventPriceEl);
+  console.log(eventPhotoEl);
+  console.log(eventStatusEl);
 
   if (
     hostIDEl &&
@@ -20,10 +30,11 @@ const addEventFormHandler = async (event) => {
     eventLocationEl &&
     eventStatusEl &&
     eventTitleEl &&
-    eventDescriptionEl
+    eventDescriptionEl &&
+    eventPhotoEl
   ) {
     const response = await fetch(`/admin`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         hostIDEl,
         eventTimeEl,
@@ -32,6 +43,7 @@ const addEventFormHandler = async (event) => {
         eventStatusEl,
         eventDescriptionEl,
         eventTitleEl,
+        eventPhotoEl,
       }),
       headers: {
         "Content-Type": "application/json",
