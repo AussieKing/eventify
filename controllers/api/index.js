@@ -13,7 +13,4 @@ router.use("/signup", signupController);
 
 router.use("/", homeController);
 
-// router.use(initialize);
-// router.use(ErrorHandler);
-
 module.exports = router;
