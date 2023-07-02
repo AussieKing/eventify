@@ -23,22 +23,12 @@
     
    <div class="container-sm">
     {{! buttons for login and sign up }}
-    <div class="d-grid gap-2 col-3 d-md-block mx-auto">
-      <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <button style="margin: 20px; position:absolute; right:51%; " class="btn btn-primary" id="logout" type="button"><p class = "text-white">Logout</p></a></button>
-        {{else}}
-        <button style="margin: 20px; position:absolute; right:51%; " class="btn btn-primary" type="button"><a href="/login"><p class = "text-white">Login</p></a></button>
-        {{/if}}
-      <button style="margin: 20px; position:relative; left: 51%; " class="btn btn-primary" type="button"><a href="/signup"><p class = "text-white">Sign up</p></a></button>
-    </div>
-    
+   
     {{! search buttons }}
-    <h4 class="text-center">Search the event you're looking for by a specific name (example: "Outdoor Movie Night")</h4>
+    <h4 class="text-center"></h4>
     <div class="input-group rounded">
-      <input id="eventSearch" class="form-control rounded" placeholder="Search all events by name" aria-label="Search" aria-describedby="search-addon"/>
-        <button class="btn btn-primary"><a id="searchBtn" href="/events"><p class = "text-white">Search</p></a></button>
-        <i class="fas fa-search fa-sm"></i>
+        <button style="margin: 20px; position:relative; left:35%" class="btn btn-primary"><a id="searchBtn" href="/events"><p class = "text-white">Show all Events!</p></a></button>
+      
       </span>
     </div>
     
