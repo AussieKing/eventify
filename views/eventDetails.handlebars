@@ -1,19 +1,33 @@
 {{! The template for displaying the details of a specific event. }}
-<body class="container" style="background-color:rgb(255, 162, 0)">
+<body
+  class="container"
+  style="background-color:rgb(255, 162, 0); margin-top:10px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
+>
 
   {{!-- {{#each events}} and {{/each}} are Handlebars.js block helpers used to iterate over the events array passed from the controller. --}}
-  <h1></h1>
 
+  <h1 class="container-lg p-3 my-3 text-center">All current events!</h1>
   {{#each event}}
-    <div style="margin: 20px;" class="event">
-      <h3 style="margin: 20px;">{{event_title}}</h3>
+    <div class="container-lg p-3 my-3 text-center" class="event">
+
+      <h3 style>- {{event_title}} - </h3>
+      <p>Event ID: #{{id}}</p>
+      <img
+        style="position:relative; width:500px"
+        src="/images/event-images/{{event_photo}}"
+        alt="{{event_title}}"
+      />
       <p style="margin: 20px;">{{event_description}}</p>
-      <p style="margin: 20px;">📅 {{time}}</p>
+      <p style="margin: 20px;">📅Date & Time: {{time}}</p>
       <p style="margin: 20px;">📍Location: {{location}}</p>
+      <p style="margin: 20px;">💲Price per person: ${{price}}</p>
+      <button class="btn btn-primary">Join Now!</button>
+
+      <hr
+        style="height:max-content;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)"
+        class="rounded"
+      />
     </div>
   {{/each}}
-
-  {{eventlist}}
-  {{event_title}}
 
 </body>

@@ -7,33 +7,13 @@ const { Event } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const dbEventData = await Event.findAll({
-      // where: {
-      //   event_title: req.body.title,
-      // },
-      // include: [
-      //   {
-      //     model: Event,
-      //     attributes: [
-      //       "event_title",
-      //       "event_description",
-      //       "event_location",
-      //       "host_id",
-      //     ],
-      //   },
-      // ],
-    });
+    const dbEventData = await Event.findAll();
     const event = dbEventData.map((event) => event.get({ plain: true }));
-    // res.status(200).json(eventlist);
     res.render("eventDetails", { event: event });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-router.post("/", )
-
-router.delete("/:id");
 
 module.exports = router;

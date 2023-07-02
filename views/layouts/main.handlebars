@@ -17,14 +17,22 @@
     ></script> 
   </head>
 
-<header class="text-centre">
-  <button style="margin: 20px; position:absolute; left: 1%" class="btn btn-primary" type="button"><a class = "text-white" href="/"><p class = "text-white">Home</p></a></button>
-  <button style="margin: 20px; position:absolute; right: 10%;" class="btn btn-primary" type="button"><a class = "text-white" href="/admin"><p class = "text-white">Admin Page</p></a></button>
-   
-  </header>
+<div style="left:30%" class="btn-group text-centre">
+ <button style="margin: 20px;  right: 7%" class="btn btn-primary" type="button"><a  href="/"><p class = "text-white">Home</p></a></button>
+<button style="margin: 20px; right: 16%;" class="btn btn-primary" type="button"><a href="/admin"><p class = "text-white">Admin Page</p></a></button>
+ {{#if logged_in}}
+        <button style="margin: 20px; ; right:26% " class="btn btn-primary" id="logout" type="button"><p class = "text-white">Logout</p></a></button>
+        {{else}}
+        <button style="margin: 20px; right:25%; " class="btn btn-primary" type="button"><a href="/login"><p class = "text-white">Login</p></a></button>
+        {{/if}}
+      <button style="margin: 20px; position:relative; right: 35%; " class="btn btn-primary" type="button"><a href="/signup"><p class = "text-white">Sign up</p></a></button>
+  
+</div>
 
-   <div class="container-sm">
-    {{! buttons for login and sign up }}
+
+
+
+
     
     <img style="margin: 25px; margin-bottom:100px; position:relative; width:500px" src="/images/logos/logo-no-background.png" alt="Eventify logo no background" class="rounded mx-auto d-block">
 
